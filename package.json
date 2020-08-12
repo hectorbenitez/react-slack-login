@@ -1,0 +1,43 @@
+{
+  "name": "react-slack-login",
+  "version": "1.0.0",
+  "description": "A React Component for Slack Login",
+  "main": "dist/react-slack-login.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build": "webpack --mode production",
+    "build:dev": "webpack --mode development --watch"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hectorbenitez/react-slack-login.git"
+  },
+  "keywords": [
+    "slack",
+    "oauth",
+    "react",
+    "login",
+    "signin"
+  ],
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hectorbenitez/react-slack-login/issues"
+  },
+  "homepage": "https://github.com/hectorbenitez/react-slack-login#readme",
+  "peerDependencies": {
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "@babel/preset-react": "^7.10.4",
+    "babel-loader": "^8.1.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "webpack": "^4.44.1",
+    "webpack-cli": "^3.3.12"
+  }
+}
