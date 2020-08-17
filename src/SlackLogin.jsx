@@ -14,8 +14,13 @@ function SlackLogin ({
     const left = screen.width / 2 - width / 2
     const top = screen.height / 2 - height / 2
 
+    const url = `https://slack.com/oauth/v2/authorize?user_scope=${slackUserScope}&client_id=${slackClientId}`
+    if (redirectUrl) {
+      url += `redirect_uri=${redirectUrl}`
+    }
+
     return window.open(
-      `https://slack.com/oauth/v2/authorize?user_scope=${slackUserScope}&client_id=${slackClientId}`,
+      url,
       '',
       'toolbar=no, location=no, directories=no, status=no, menubar=no, scrollbars=no, resizable=no, copyhistory=no, width=' +
         width +
