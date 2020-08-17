@@ -1,4 +1,4 @@
-# React Twitter Authentication Component
+# React Slack Authentication Component
 
 > A Slack oAuth Sign-in/Log-in Component for React
 > https://api.slack.com/docs/sign-in-with-slack
