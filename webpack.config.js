@@ -1,6 +1,6 @@
 module.exports = {
   externals: {
-    'react': 'React'
+    'react': 'react'
   },
   output: {
     filename: './react-slack-login.js',
