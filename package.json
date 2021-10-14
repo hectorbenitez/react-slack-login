@@ -1,6 +1,6 @@
 {
   "name": "react-slack-login",
-  "version": "1.1.7",
+  "version": "1.1.9",
   "description": "A React Component for Slack Login",
   "main": "dist/react-slack-login.js",
   "scripts": {
@@ -37,7 +37,7 @@
     "prop-types": "^15.7.2",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
-    "webpack": "^4.44.1",
-    "webpack-cli": "^3.3.12"
+    "webpack": "^5.58.2",
+    "webpack-cli": "^4.9.0"
   }
 }
