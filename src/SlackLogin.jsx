@@ -74,8 +74,9 @@ function SlackLogin ({
   }
 
   return (
-    <a>
+    <a className='react-slack-login-a' style={{ cursor: 'pointer' }}>
       <img
+        className='react-slack-login-img'
         onClick={handleClick}
         alt='Sign in with Slack'
         height='40'
