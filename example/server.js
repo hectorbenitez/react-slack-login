@@ -2,9 +2,13 @@ import express from 'express'
 import cors from 'cors'
 import fetch from 'node-fetch'
 import 'dotenv/config'
+import path from 'path'
+
 const app = express()
 
 app.use(cors())
+app.use(express.static('frontend/dist'))
+app.use(express.json())
 
 // This route should match with the oAuth in the Slack App
 app.get('/oauth/redirect', async (req, res) => {
@@ -15,12 +19,12 @@ app.get('/oauth/redirect', async (req, res) => {
 // This route should match with the frontend
 app.post('/oauth', async (req, res) => {
     const { code } = req.body
-    const { SLACK_CLIENT_ID, SLACK_CLIENT_SECRET } = process.env
+    const { VITE_SLACK_CLIENT_ID, SLACK_CLIENT_SECRET, VITE_REDIRECT_URL } = process.env
     // Validate code with Slack API to get the access token
     const query = {
         headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
         method: 'POST',
-        body: `code=${code}&client_id=${SLACK_CLIENT_ID}&client_secret=${SLACK_CLIENT_SECRET}&redirect_uri=<YOUR_REDIRECT_URL>`
+        body: `code=${code}&client_id=${VITE_SLACK_CLIENT_ID}&client_secret=${SLACK_CLIENT_SECRET}&redirect_uri=${VITE_REDIRECT_URL}`
     }
     const authResponse = await fetch('https://slack.com/api/oauth.v2.access', query)
     const authJson = await authResponse.json()
@@ -46,8 +50,13 @@ app.post('/oauth', async (req, res) => {
     // You decide how save the response to the Database
     // e.g. Model.save({ user_id: user.id, token: authJson.authed_user.access_token })
     // You can return a JWT token to the frontend to use it in the future
-    res.send('ok')
+    console.log(userDataJson)
+    res.send({ message: 'ok' })
 })
+
+app.get('*', (req, res) => {
+    res.sendFile(path.resolve(path.dirname(), './frontend/dist/index.html'));
+});
 
 
 console.log('Listening on port 5000')
