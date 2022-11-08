@@ -3,7 +3,7 @@ import PropTypes from 'prop-types'
 
 function SlackLogin ({
   slackClientId,
-  slackUserScope = 'identity.basic',
+  slackUserScope = 'openid profile',
   redirectUrl,
   onSuccess,
   onFailure
@@ -14,7 +14,7 @@ function SlackLogin ({
     const left = screen.width / 2 - width / 2
     const top = screen.height / 2 - height / 2
 
-    let url = `https://slack.com/oauth/v2/authorize?user_scope=${slackUserScope}&client_id=${slackClientId}`
+    let url = `https://slack.com/openid/connect/authorize?response_type=code&scope=${slackUserScope}&client_id=${slackClientId}`
     if (redirectUrl) {
       url += `&redirect_uri=${redirectUrl}`
     }
