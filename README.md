@@ -15,7 +15,7 @@
   onFailure={onFailed}
   onSuccess={onSuccess}
   slackClientId='SLACK_CLIENT_ID'
-  slackUserScope='identity.basic'
+  slackUserScope='openid profile'
 />
 ```
 
