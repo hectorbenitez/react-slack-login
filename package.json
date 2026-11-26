@@ -1,12 +1,13 @@
 {
   "name": "react-slack-login",
-  "version": "2.0.0",
-  "description": "A React Component for Slack Login",
+  "version": "2.1.0",
+  "description": "A Slack OpenID Connect Sign in with Slack button for React",
   "main": "dist/react-slack-login.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "webpack --mode production",
-    "build:dev": "webpack --mode development --watch"
+    "build": "vite build && cp src/index.d.ts dist/index.d.ts",
+    "dev": "vite build --watch",
+    "test": "vitest run",
+    "prepublishOnly": "npm test && npm run build"
   },
   "repository": {
     "type": "git",
@@ -17,27 +18,40 @@
     "oauth",
     "react",
     "login",
-    "signin"
+    "signin",
+    "openid",
+    "openid-connect",
+    "sign-in-with-slack"
   ],
-  "author": "",
+  "author": "Hector Benitez",
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/hectorbenitez/react-slack-login/issues"
   },
   "homepage": "https://github.com/hectorbenitez/react-slack-login#readme",
   "peerDependencies": {
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1"
+    "react": "^16.14.0 || ^17.0.0 || ^18.0.0 || ^19.0.0"
   },
   "devDependencies": {
-    "@babel/core": "^7.11.1",
-    "@babel/preset-env": "^7.11.0",
-    "@babel/preset-react": "^7.10.4",
-    "babel-loader": "^8.1.0",
-    "prop-types": "^15.7.2",
-    "react": "^16.13.1",
-    "react-dom": "^16.13.1",
-    "webpack": "^5.58.2",
-    "webpack-cli": "^4.9.0"
-  }
+    "@testing-library/react": "^16.3.3",
+    "@vitejs/plugin-react": "^6.3.0",
+    "jsdom": "^29.1.1",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1",
+    "vite": "^8.4.0",
+    "vitest": "^5.1.2"
+  },
+  "module": "dist/react-slack-login.mjs",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/react-slack-login.mjs",
+      "require": "./dist/react-slack-login.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "sideEffects": false
 }

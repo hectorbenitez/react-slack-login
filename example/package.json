@@ -4,27 +4,23 @@
     "version": "0.0.0",
     "type": "module",
     "scripts": {
-        "dev": "npm run build & npm run dev:server",
-        "dev:server": "node server.js",
-        "dev:client": "vite",
+        "dev": "npm run build && npm start",
         "build": "vite build",
-        "preview": "vite preview",
         "start": "node server.js"
     },
     "dependencies": {
         "cors": "^2.8.5",
-        "dotenv": "^16.0.1",
-        "express": "^4.18.1",
-        "node-fetch": "^3.2.10",
-        "npm-run-all": "^4.1.5",
-        "react": "^18.2.0",
-        "react-dom": "^18.2.0",
-        "react-slack-login": "^1.1.9"
+        "dotenv": "^17.0.0",
+        "express": "^5.1.0",
+        "react": "^19.0.0",
+        "react-dom": "^19.0.0",
+        "react-slack-login": "file:.."
     },
     "devDependencies": {
-        "@types/react": "^18.0.17",
-        "@types/react-dom": "^18.0.6",
-        "@vitejs/plugin-react": "^2.0.1",
-        "vite": "^3.0.7"
+        "@vitejs/plugin-react": "^6.0.0",
+        "vite": "^8.0.0"
+    },
+    "engines": {
+        "node": ">=20"
     }
 }
